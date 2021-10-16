@@ -49,7 +49,10 @@ def reward_function(params):
     if direction_diff > DIRECTION_THRESHOLD:
         reward *= 0.5
         
-        
+    if direction_diff > 10.0 and speed > 1.5:
+        reward *= 0.5
+    else:  
+        reward *= 1.25
 
    
     # Calculate 3 marks that are farther and father away from the center line
@@ -67,9 +70,10 @@ def reward_function(params):
     else:
         reward += 1e-3  # likely crashed/ close to off track
 
-    if track_direction - heading <= 5 and speed >= 1.5:
-        reward *= 2;
-    
+    if all_wheels_on_track:
+        reward *= 1.4
+    else:
+        reward *= .5
     
     # Steering penality threshold, change the number based on your action space setting
     ABS_STEERING_THRESHOLD = 15 
