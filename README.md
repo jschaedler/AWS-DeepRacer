@@ -4,4 +4,4 @@ My AWS DeepRacer Model
 * [Evaluation Results and October Qualifier](#evaluation-results-and-october-qualifier)
 
 Training Configuration
-[](Images/Training%20Configuration)
+[](Images/Training%20Configuration.png)
